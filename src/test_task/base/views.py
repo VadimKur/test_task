@@ -10,6 +10,7 @@ def home(request):
 
     if request.method == 'POST':
         form = MessageForm(request.POST)
-        form.save()
+        if form.is_valid():
+            form.save()
 
     return render(request, 'base/home.html', context)
